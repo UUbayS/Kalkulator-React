@@ -60,6 +60,22 @@ function App() {
     return !isNaN(char) && char !== " ";
   };
 
+  // Fungsi untuk memformat angka dengan maksimal 9 digit di belakang koma
+  const formatNumber = (num) => {
+    if (typeof num !== 'number' || !isFinite(num)) {
+      return num;
+    }
+    
+    // Jika angka bulat, kembalikan sebagai string
+    if (Number.isInteger(num)) {
+      return num.toString();
+    }
+    
+    // Batasi hingga 9 digit di belakang koma dan hilangkan trailing zeros
+    const formatted = num.toFixed(9);
+    return parseFloat(formatted).toString();
+  };
+
   // Fungsi untuk evaluasi ekspresi dengan kurung
   const evaluateExpression = (expr) => {
     try {
@@ -92,8 +108,9 @@ function App() {
       }
       
       const result = evaluateExpression(finalExpression);
-      setDisplayValue(String(result));
-      setExpression(String(result));
+      const formattedResult = formatNumber(result);
+      setDisplayValue(String(formattedResult));
+      setExpression(String(formattedResult));
       setParenthesesCount(0);
     }
   };

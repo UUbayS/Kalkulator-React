@@ -1,0 +1,131 @@
+/* Styling dasar untuk body */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Container utama kalkulator */
+.calculator {
+  width: 350px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  background-color: #222;
+  padding: 20px;
+}
+
+/* Layar display kalkulator */
+.display {
+  background-color: #333;
+  color: white;
+  text-align: right;
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Styling untuk ekspresi matematika */
+.expression {
+  font-size: 1.2em;
+  color: #aaa;
+  min-height: 24px;
+  word-break: break-all;
+  line-height: 1.2;
+}
+
+/* Styling untuk hasil/input saat ini */
+.result {
+  font-size: 2.5em;
+  color: white;
+  font-weight: bold;
+  min-height: 40px;
+  line-height: 1;
+}
+
+/* Wadah untuk semua tombol */
+.keypad {
+  display: flex;
+}
+
+.input-keys {
+  flex: 3;
+}
+
+.digit-keys {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.function-keys {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/* Wadah untuk tombol operator */
+.operator-keys {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-left: 10px;
+}
+
+/* Styling umum untuk semua tombol */
+.key {
+  padding: 20px;
+  font-size: 1.5em;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #555;
+  color: white;
+  transition: background-color 0.2s;
+}
+
+.key:hover {
+  background-color: #666;
+}
+
+.key:active {
+  background-color: #777;
+}
+
+/* Styling khusus untuk tombol operator */
+.operator-keys .key {
+  background-color: #ff9500; /* Oranye */
+}
+
+.operator-keys .key:hover {
+  background-color: #ffab3e;
+}
+
+/* Styling khusus untuk tombol AC */
+.function-keys .key {
+  background-color: #777;
+}
+
+.function-keys .key:hover {
+  background-color: #888;
+}
+
+/* Membuat tombol 0 lebih lebar */
+.key-0 {
+  grid-column: span 2;
+}
+
+/* Membuat tombol equals lebih tinggi (2 baris) */
+.key-equals {
+  grid-row: span 2;
+  grid-column: span 2;
+}
